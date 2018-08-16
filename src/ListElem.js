@@ -15,8 +15,9 @@ class ListElem extends Component {
           <li
             className={isActive ? 'active-li' : 'inactive-li'}
             key={this.props.locations.id}
-            id={this.props.locations.id}
-            onClick={this.props.handleSidebar}
+            onClick={e => {
+              this.props.handleSidebar(e, this.props.id);
+            }}
           >
             {this.props.locations.place}
           </li>

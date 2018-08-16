@@ -51,10 +51,8 @@ class App extends Component {
 
   //function applied to markers that sets the id for the active location object
   //the markers can only be activated, when no filtering is applied
-  handleSidebar = e => {
-    debugger
-
-    const value = e.target.id;
+  handleSidebar= (e, id) => {
+    const value = id;
     if (this.state.filteredObj.length === 0) {
       this.setState({ activeObj: value });
     }
