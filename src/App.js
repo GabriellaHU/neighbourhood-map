@@ -53,7 +53,7 @@ class App extends Component {
   //the markers can only be activated, when no filtering is applied
   handleSidebar = e => {
     debugger
-    
+
     const value = e.target.id;
     if (this.state.filteredObj.length === 0) {
       this.setState({ activeObj: value });
