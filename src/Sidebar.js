@@ -38,6 +38,7 @@ class Sidebar extends Component {
               {isFiltered
                 ? filteredObj.map(location => (
                     <ListElem
+                      tabindex="0"
                       key={location.id}
                       id={location.id}
                       handleSidebar={this.props.handleSidebar}
@@ -47,6 +48,7 @@ class Sidebar extends Component {
                   ))
                 : locations.map(location => (
                     <ListElem
+                      tabindex="0"
                       key={location.id}
                       id={location.id}
                       handleSidebar={this.props.handleSidebar}

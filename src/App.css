@@ -79,7 +79,6 @@ main {
 
 
 .sidebar {
-  height: auto;
   display: flex;
   flex-wrap: wrap;
   flex-basis: 100%;
@@ -109,13 +108,14 @@ main {
 }
 
 .appetizer-img {
-    max-height: 250px;
-    overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 350px;
 }
 
 .unpsplash-img{
   margin-bottom: 10px;
-  width: 100vw;
+  overflow-y: hidden;
 }
 
 .appetizer-text {
@@ -132,7 +132,7 @@ main {
 
 .credentials a{
   padding: 0.5em;
-  color: #1da1f2;
+  color: #92c8ea;
 }
 
 
@@ -156,7 +156,7 @@ main {
   font-weight: 900;
   font-size: 1em;
   cursor: pointer;
-  background-color: #1da1f2;
+  background-color: #096096;
   color: #fff;
   padding: 12px 12px 13px;
   border-radius: 0;
@@ -165,7 +165,7 @@ main {
 
 /* hamburger-menu */
 .menu {
-  height: 350px;
+  max-height: 350px;
   list-style: none;
   display: flex;
   flex-basis: 100%;

@@ -13,6 +13,7 @@ class ListElem extends Component {
 
 
           <li
+            tabindex="0"
             className={isActive ? 'active-li' : 'inactive-li'}
             key={this.props.locations.id}
             onClick={e => {

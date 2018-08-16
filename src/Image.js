@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 // Unsplash API
 const API =
-  "https://api.unsplash.com/photos/search?client_id=dddf912b3e4b9693384e1752b4aafb1311290a136c54a184eda7f717a5724b18&query=gourmet/400x300";
+  "https://api.unsplash.com/photos/search?client_id=dddf912b3e4b9693384e1752b4aafb1311290a136c54a184eda7f717a5724b18&query=gourmet/400x200";
 
 
 class Image extends Component {
@@ -40,10 +40,9 @@ class Image extends Component {
     const randomImg = images.slice(randomIndex - 1, randomIndex)
 
     //error handling, in case there are no images to render
-    let isErrorFree = false;
-    if (randomImg.length > 0) {
-      isErrorFree = true;
-    }
+    let isErrorFree = images.length != 0;
+
+    const image = isErrorFree ? images[randomIndex] : null;
 
     return (
       <article className="appetizer">
@@ -62,7 +61,7 @@ class Image extends Component {
                   key={image.id}
                   className="unpsplash-img"
                   src={image.urls.small}
-                  alt={image.description}
+                  alt="food image from Unspklash"
                 />
               </a>
 

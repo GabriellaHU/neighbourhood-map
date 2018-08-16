@@ -32,7 +32,7 @@ class MapBox extends Component {
     const active = locations.filter(obj => obj.id === activeObj);
 
     return (
-      <section className="map-container">
+      <section className="map-container" aria-role="application">
         <Map
           key="map"
           id="map"

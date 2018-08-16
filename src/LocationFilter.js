@@ -7,14 +7,14 @@ class Filter extends Component {
 
     return (
       <section className="location-selector">
-        <label for="location-select">Filter locations</label>
         <select
+          aria-label="location-selector"
           id="location-select"
           name="location-selector"
           onChange={this.props.handleChange}
           value={"selector"}
         >
-          <option value="" selected>
+          <option value="" defaultValue>
             Select an option
           </option>
           {this.props.locations.map(location => (
