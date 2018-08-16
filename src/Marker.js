@@ -19,7 +19,7 @@ class MBMarker extends Component {
     return (
       <Marker
         key={this.props.location.id}
-        onClick={this.props.handleClick}
+        onClick={this.props.handleMarker}
         value={this.props.location.id}
         className="marker"
         coordinates={this.props.location.lngLat}

@@ -19,7 +19,7 @@ class ListElem extends Component {
             className="active-li"
             key={this.props.locations.id}
             id={this.props.locations.id}
-            onClick={this.props.handleClick}
+            onClick={this.props.handleSidebar}
           >
             {this.props.locations.place}
           </li>
@@ -28,7 +28,7 @@ class ListElem extends Component {
             className="inactive-li"
             key={this.props.locations.id}
             id={this.props.locations.id}
-            onClick={this.props.handleClick}
+            onClick={this.props.handleSidebar}
           >
             {this.props.locations.place}
           </li>

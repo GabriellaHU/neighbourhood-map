@@ -53,7 +53,7 @@ class MapBox extends Component {
             ? filteredObj.map(location => (
                 <MBMarker
                   key={location.id}
-                  handleClick={this.props.handleClick}
+                  handleMarker={this.props.handleMarker}
                   location={location}
                   activeObj={this.props.activeObj}
                 />
@@ -61,8 +61,7 @@ class MapBox extends Component {
             : locations.map(location => (
                 <MBMarker
                   key={location.id}
-                  onClick={this.props.handleClick}
-                  handleClick={this.props.handleClick}
+                  handleMarker={this.props.handleMarker}
                   location={location}
                   activeObj={this.props.activeObj}
                 />

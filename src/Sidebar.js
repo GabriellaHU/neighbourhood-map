@@ -26,7 +26,7 @@ class Sidebar extends Component {
         <Filter
           locations={this.props.locations}
           handleChange={this.props.handleChange}
-          handleClick={this.props.handleClick}
+          handleSidebar={this.props.handleSidebar}
           resetFilter={this.props.resetFilter}
         />
 
@@ -38,16 +38,16 @@ class Sidebar extends Component {
               {isFiltered
                 ? filteredObj.map(location => (
                     <ListElem
-                      key={location.handleSele}
-                      handleClick={this.props.handleClick}
+                      key={location.id}
+                      handleSidebar={this.props.handleSidebar}
                       activeObj={this.props.activeObj}
                       locations={location}
                     />
                   ))
                 : locations.map(location => (
                     <ListElem
-                      key={location.handleSele}
-                      handleClick={this.props.handleClick}
+                      key={location.id}
+                      handleSidebar={this.props.handleSidebar}
                       activeObj={this.props.activeObj}
                       locations={location}
                     />

@@ -44,7 +44,7 @@ main {
 /* ---------------------------------------- */
 
 .app-title {
-  font-size: 1.8em;
+  font-size: 1.2em;
   color: #fff;
 }
 
@@ -184,7 +184,6 @@ main {
 
 .inactive-li{
   background-color: #222;
-
 }
 
 .active-li{
@@ -217,6 +216,14 @@ main {
     order: 3;
   }
 
+  .menu li {
+    text-align: center;
+  }
+
+  .menu {
+    max-height: 300px;
+  }
+
 }
 
 
@@ -228,6 +235,10 @@ main {
   .unpsplash-img{
     margin-bottom: 10px;
     max-width: 450px;
+  }
+
+  .app-title {
+    font-size: 1.8em;
   }
 
 }

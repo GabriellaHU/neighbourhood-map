@@ -51,8 +51,18 @@ class App extends Component {
 
   //function applied to markers that sets the id for the active location object
   //the markers can only be activated, when no filtering is applied
-  handleClick = e => {
+  handleSidebar = e => {
+    debugger
+    
+    const value = e.target.id;
+    if (this.state.filteredObj.length === 0) {
+      this.setState({ activeObj: value });
+    }
+  };
 
+  //function applied to list items that sets the id for the active location object
+  //the list items can only be activated, when no filtering is applied
+  handleMarker= e => {
     const value = e.target.id;
     if (this.state.filteredObj.length === 0) {
       this.setState({ activeObj: value });
@@ -94,7 +104,7 @@ class App extends Component {
             activeObj={this.state.activeObj}
             filteredObj={this.state.filteredObj}
             handleChange={this.handleChange}
-            handleClick={this.handleClick}
+            handleSidebar={this.handleSidebar}
             resetFilter={this.resetFilter}
             pictures={this.state.pictures}
           />
@@ -103,7 +113,7 @@ class App extends Component {
             locations={this.state.locations}
             activeObj={this.state.activeObj}
             filteredObj={this.state.filteredObj}
-            handleClick={this.handleClick}
+            handleMarker={this.handleMarker}
             removePopup={this.removePopup}
           />
         </main>
