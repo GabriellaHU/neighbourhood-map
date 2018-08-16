@@ -15,9 +15,13 @@ The project uses React's own ServiceWorker.
    **Pre-requisites**: Install [git](https://gitforwindows.org/), [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) on your computer.
 
    1. Get a local copy of this repo by typing: `<git clone https://github.com/GabriellaHU/neighbourhood-map.git>` to the terminal. (Or download the zip file and unzip it.)
-   2. Enter the project folder in your terminal and run <`npm run build`>
+   2. Enter the project folder in your terminal and run <`serve-s build`>
    3. Navigate to `localhost:5000` in your browser to explore the app. Review the files in your preferred code editor.
-   4. If you wish to use my code for development purposes, please, [create your own MapBox API key](https://www.mapbox.com/signup/?route-to=%22/account/%22), and replace the current one in the MapBox.js file.
+
+   **Optional:**
+   In case you wish to use the code for development purposes, you can type `npm start` to the terminal, and navigate to `localhost:3000`.
+   (You can setup the ServiceWorker with `npm run build` afterwards.)
+   In this case, please [create your own MapBox API key](https://www.mapbox.com/signup/?route-to=%22/account/%22), and replace the current one in the MapBox.js file.
 
 
 ## Built With
