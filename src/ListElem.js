@@ -7,32 +7,19 @@ class ListElem extends Component {
 
     //conditional rendering of the sidebar list items
     //the condition matches the rendered location object's id with the currently active object in the state of App.js
-    let isActive = false;
-    if (this.props.locations.id === this.props.activeObj) {
-      isActive = true;
-    }
+    let isActive = this.props.locations.id === this.props.activeObj;
 
     return (
 
-        isActive ? (
+
           <li
-            className="active-li"
+            className={isActive ? 'active-li' : 'inactive-li'}
             key={this.props.locations.id}
             id={this.props.locations.id}
             onClick={this.props.handleSidebar}
           >
             {this.props.locations.place}
           </li>
-        ) : (
-          <li
-            className="inactive-li"
-            key={this.props.locations.id}
-            id={this.props.locations.id}
-            onClick={this.props.handleSidebar}
-          >
-            {this.props.locations.place}
-          </li>
-        )
 
     );
   }
