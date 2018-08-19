@@ -13,8 +13,8 @@ class ListElem extends Component {
 
 
           <li
-            tabindex="0"
             className={isActive ? 'active-li' : 'inactive-li'}
+            tabIndex="0"
             key={this.props.locations.id}
             onClick={e => {
               this.props.handleSidebar(e, this.props.id);
