@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 // Unsplash API
 const API =
-  "https://api.unsplash.com/photos/search?client_id=dddf912b3e4b9693384e1752b4aafb1311290a136c54a184eda7f717a5724b18&query=gourmet/400x200";
+  "https://api.unsplash.com/photos/search?client_id=dddf912b3e4b9693384e1752b4aafb1311290a136c54a184eda7f717a5724b18&query=gourmet&orientation=squarish";
 
 
 class Image extends Component {
@@ -51,39 +51,41 @@ class Image extends Component {
           Daily appetizer
         </h2>
 
-        {isErrorFree ? (
-          randomImg.map(image => (
-            <figure
-              className="appetizer-img">
+          {isErrorFree ? (
+            randomImg.map(image => (
+              <figure
+                className="appetizer-wrapper">
 
-              <a href={image.urls.regular}>
-                <img
-                  key={image.id}
-                  className="unpsplash-img"
-                  src={image.urls.small}
-                  alt="food image from Unspklash"
-                />
-              </a>
+                <a
+                  className="unsplash-url"
+                  href={image.urls.regular}>
+                  <img
+                    key={image.id}
+                    className="unpsplash-img"
+                    src={image.urls.small}
+                    alt="food image from Unsplash"
+                  />
+                </a>
 
-              <figcaption
-                className="appetizer-text">
-                <span>
-                  Photo by {image.user.name}
-                </span>
-                <span
-                  className= "credentials">
-                  Powered by
-                    <a href="https://unsplash.com/">
-                       Unsplash
-                    </a>
-                </span>
-              </figcaption>
-            </figure>
-          ))
-        ) : (
-          <p className="error">
-            Sorry, we could not download this image for you.
-          </p>
+                <figcaption
+                  className="appetizer-text">
+                  <span>
+                    Photo by {image.user.name}
+                  </span>
+                  <span
+                    className= "credentials">
+                    Powered by
+                      <a href="https://unsplash.com/">
+                         Unsplash
+                      </a>
+                  </span>
+                </figcaption>
+              </figure>
+            ))
+          ) : (
+            <p className="error">
+              Sorry, we could not download this image for you.
+            </p>
         )}
 
 

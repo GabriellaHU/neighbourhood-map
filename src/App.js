@@ -94,13 +94,13 @@ class App extends Component {
       <div className="app">
         <header className="header">
           <h1 className="app-title">Neighbourhood Map - Fine Dining</h1>
+          <a
+            href="#location-select"
+            className="skip-link"
+            >
+            Skip to location selector
+          </a>
         </header>
-        <a
-          href="#location-select"
-          className="skip-link"
-          >
-          Skip to location selector
-        </a>
         <main className="main">
           <Sidebar
             key="sidebar"

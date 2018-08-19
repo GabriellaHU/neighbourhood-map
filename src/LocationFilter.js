@@ -6,7 +6,7 @@ class Filter extends Component {
     const { locations } = this.props;
 
     return (
-      <section className="location-selector">
+      <section id="location-filter">
         <select
           aria-label="location-selector"
           id="location-select"
