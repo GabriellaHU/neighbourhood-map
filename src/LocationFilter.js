@@ -18,8 +18,10 @@ class Filter extends Component {
             Select an option
           </option>
           {this.props.locations.map(location => (
-            <option value={location.id} key={location.id}>
-              {location.place}
+            <option
+              value={location.id}
+              key={location.id}>
+                {location.place}
             </option>
           ))}
         </select>

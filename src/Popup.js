@@ -5,18 +5,16 @@ import ReactMapboxGl, { Popup } from "react-mapbox-gl";
 
 class MBPopup extends Component{
 
+
   componentDidMount(){
-   this.popup.focus(); 
+   this.popupRef.current.focus()
   }
 
   render() {
 
   return (
-    <div>
     <Popup
       className="popup"
-      ref="popup"
-      tabIndex="-1"
       onClick={this.props.removePopup}
       coordinates={this.props.locations.lngLat}
       offset={{
@@ -25,10 +23,12 @@ class MBPopup extends Component{
         "bottom-right": [-12, -38]
       }}
     >
-      <h1>{this.props.locations.place}</h1>
+      <h1
+        tabIndex="-1"
+        ref={this.popupRef = React.createRef()}
+      >{this.props.locations.place}</h1>
       <p>{this.props.locations.address}</p>
     </Popup>
-    </div>
   );
 }
 }
