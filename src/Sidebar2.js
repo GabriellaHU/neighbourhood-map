@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 
 import ListElem from "./ListElem2";
@@ -15,10 +16,12 @@ class Sidebar extends Component {
     const { filteredObj } = this.props;
     const { handleSidebar } = this.props;
 
-    let isFiltered = false;
-    if (filteredObj.length > 0) {
-      isFiltered = true;
+    let isActivated = false;
+    if (activeObj.length > 0) {
+      isActivated = true;
     }
+
+    let activeVenue = isActivated ? venues.filter(venue => venue.venue.id === activeObj) : false
 
     return (
       <aside className="sidebar">
@@ -38,7 +41,8 @@ class Sidebar extends Component {
           <ul
             className="menu">
 
-              {venues.map(venue => {
+              {filteredObj ?
+                activeVenue.map(venue => {
                 return(
                   <ListElem
                     key={venue.venue.id}
@@ -47,7 +51,20 @@ class Sidebar extends Component {
                     activeObj={activeObj}
                     venue={venue.venue}
                   />
-                )})}
+                )}) :
+                venues.map(venue => {
+                return(
+                  <ListElem
+                    key={venue.venue.id}
+                    id={venue.venue.id}
+                    handleSidebar={handleSidebar}
+                    activeObj={activeObj}
+                    venue={venue.venue}
+                  />
+                )})
+
+              }
+
 
           </ul>
 

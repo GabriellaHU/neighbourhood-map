@@ -28,18 +28,13 @@ class MapBox extends Component {
     // conditional rendering of the markers
     // more than one marker gets only rendered when no filtering is applied
 
-    let isFiltered = false;
-    if (filteredObj.length > 0) {
-      isFiltered = true;
-    }
-
     let isActivated = false;
     if (activeObj.length > 0) {
       isActivated = true;
     }
 
-    const activeVenue = isActivated ? venues.filter(venue => venue.venue.id === activeObj) : false
-    
+    let activeVenue = isActivated ? venues.filter(venue => venue.venue.id === activeObj) : false
+
     return (
         <Map
           key="map"
@@ -59,17 +54,27 @@ class MapBox extends Component {
         >
         // conditional rendering of the markers
         // more than one marker gets only rendered when no filtering is applied
-            {venues.map(venue => {
-              return (
-                <MBMarker
-                  key={venue.venue.id}
-                  venue={venue.venue}
-                  handleMarker={handleMarker}
-                  activeObj={activeObj}
-                />
-              )})
-            }
-            {activeVenue != false ?
+            {filteredObj
+                ? activeVenue.map(venue => {
+                  return (
+                    <MBMarker
+                      key={venue.venue.id}
+                      venue={venue.venue}
+                      handleMarker={handleMarker}
+                      activeObj={activeObj}
+                    />
+                  )})  :
+                    venues.map(venue => {
+                        return (
+                         <MBMarker
+                           key={venue.venue.id}
+                           venue={venue.venue}
+                           handleMarker={handleMarker}
+                           activeObj={activeObj}
+                         />
+                  )})
+             }
+            {activeVenue ?
               <MBPopup
                 key={activeVenue[0].venue.id}
                 venue={activeVenue[0].venue}
@@ -77,7 +82,6 @@ class MapBox extends Component {
               />
              : ''
             }
-
 
         </Map>
     );

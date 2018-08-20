@@ -13,12 +13,15 @@ class App extends Component {
   state = {
     venues: [],
     activeObj: "",
-    filteredObj: "",
+    filteredObj: false,
+    activeVenue: []
   };
 
   componentDidMount() {
      this.getVenues()
   }
+
+
 
   //fetch locations
   getVenues = () => {
@@ -28,7 +31,7 @@ class App extends Component {
       client_secret: "EC1CO5SHA1XNKFMIUF5BQVB3L3RLDL3QHLBFI5IJ42B25E5P",
       ll: "47.511981, 19.029968",
       radius: "250",
-      limit: '5',
+      limit: '7',
       query: "food",
       v: "20182008"
     }
@@ -45,7 +48,7 @@ class App extends Component {
   //the markers can only be activated, when no filtering is applied
   handleSidebar= (e, id) => {
     const value = id;
-    if (this.state.filteredObj.length === 0) {
+    if (this.state.filteredObj === false) {
       this.setState({ activeObj: value });
     }
   };
@@ -54,7 +57,7 @@ class App extends Component {
   //the list items can only be activated, when no filtering is applied
   handleMarker= e => {
     const value = e.target.id;
-    if (this.state.filteredObj.length === 0) {
+    if (this.state.filteredObj === false) {
       this.setState({ activeObj: value });
     }
   };
@@ -63,24 +66,27 @@ class App extends Component {
   handleChange = e => {
     const value = e.target.value;
     this.setState({ activeObj: value });
-    this.setState({ filteredObj: value });
+    this.setState({ filteredObj: true });
   };
 
   //function that resets filtering, when the button is clicked
   resetFilter = e => {
-    this.setState({ filteredObj: "" });
+    this.setState({ filteredObj: false });
+    this.setState({ activeObj: "" });
   };
 
   //function that removes the active popup, when it is clicked
   //the function works only when no filtering is applied
   //closing the popup resets the active location
   removePopup = () => {
-    if (this.state.filteredObj.length === 0) {
+    if (this.state.filteredObj === false) {
       this.setState({ activeObj: "" });
     }
   };
 
   render() {
+
+
     return (
       <div className="app">
         <header className="header">
