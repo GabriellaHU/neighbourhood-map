@@ -35,6 +35,9 @@ The project uses React's own ServiceWorker.
    * [React Mapbox GL](https://github.com/alex3165/react-mapbox-gl)
    * [Prettier](https://prettier.io/) (a code formatting plugin for Atom)
    * [Unsplash API](https://unsplash.com/developers)
+   * [FourSquare API](https://developer.foursquare.com/places-api)
+
+
 
 
 ## Contributing
