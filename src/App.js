@@ -112,7 +112,7 @@ class App extends Component {
             resetFilter={this.resetFilter}
             pictures={this.state.pictures}
           />
-          <section className="map-container" aria-role="application">
+          <section className="map-container">
            <MapBox
              key="mapbox"
              venues={this.state.venues}

@@ -45,7 +45,7 @@ class Image extends Component {
     const image = isErrorFree ? images[randomIndex] : null;
 
     return (
-      <article className="appetizer">
+      <section className="appetizer">
         <h2
           className="appetizer-title">
           Daily appetizer
@@ -89,7 +89,7 @@ class Image extends Component {
         )}
 
 
-      </article>
+      </section>
     );
   }
 }
