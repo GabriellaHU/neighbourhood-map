@@ -15,6 +15,8 @@ const Map = ReactMapboxGl({
 });
 
 class MapBox extends Component {
+
+
   render() {
 
     const { locations } = this.props;
@@ -32,7 +34,6 @@ class MapBox extends Component {
     const active = locations.filter(obj => obj.id === activeObj);
 
     return (
-      <section className="map-container" aria-role="application">
         <Map
           key="map"
           id="map"
@@ -42,7 +43,6 @@ class MapBox extends Component {
             width: "100%"
           }}
           center={[19.042, 47.496]} /*starting position of the map*/
-          zoom={[12]} /*starting zoom of the map*/
           fitBounds={
             [18.934, 47.513][(19.102, 47.469)]
           } /*the map will center on the given coordinates*/
@@ -74,7 +74,6 @@ class MapBox extends Component {
             />
           ))}
         </Map>
-      </section>
     );
   }
 }

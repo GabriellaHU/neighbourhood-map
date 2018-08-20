@@ -243,7 +243,7 @@ body {
 
 /* ----------------- MEDIA QUERIES -------------------------------- */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
 
   .map-container {
     order: 1;

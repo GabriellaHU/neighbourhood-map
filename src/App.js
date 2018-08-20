@@ -112,14 +112,16 @@ class App extends Component {
             resetFilter={this.resetFilter}
             pictures={this.state.pictures}
           />
-          <MapBox
-            key="mapbox"
-            locations={this.state.locations}
-            activeObj={this.state.activeObj}
-            filteredObj={this.state.filteredObj}
-            handleMarker={this.handleMarker}
-            removePopup={this.removePopup}
+          <section className="map-container" aria-role="application">
+           <MapBox
+             key="mapbox"
+             locations={this.state.locations}
+             activeObj={this.state.activeObj}
+             filteredObj={this.state.filteredObj}
+             handleMarker={this.handleMarker}
+             removePopup={this.removePopup}
           />
+          </section>
         </main>
       </div>
     );
