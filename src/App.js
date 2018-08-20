@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Sidebar from "./Sidebar";
-import MapBox from "./ReactMapBox";
+import Sidebar from "./Sidebar2";
+import MapBox from "./ReactMapBox2";
 
 import "./App.css";
 
@@ -12,41 +12,8 @@ class App extends Component {
   // filteredObj: the object defined by the dropdown menu filter
   state = {
     venues: [],
-    locations: [
-      {
-        id: "0",
-        place: "Nika Restaurant",
-        address: "Budapest, Kossuth Lajos u. 7.",
-        lngLat: [19.058298, 47.493740]
-      },
-      {
-        id: "1",
-        place: "Mandragora Restaurant",
-        address: "Budapest, Kacsa utca",
-        lngLat: [19.034505, 47.509906]
-      },
-      {
-        id: "2",
-        place: "Marangona Gastro Point",
-        address: "Budapest, Bimbó út 2.",
-        lngLat: [19.029968, 47.511981]
-      },
-      {
-        id: "3",
-        place: "Búsuló Juhász Restaurant",
-        address: "Budapest, Kelenhegyi út 58.",
-        lngLat: [19.040212, 47.485351]
-      },
-      {
-        id: "4",
-        place: "Vakvarjú Restaurant",
-        address: "Budapest, Paulay Ede u. 7.",
-        lngLat: [19.055999, 47.499504]
-      }
-    ],
-
     activeObj: "",
-    filteredObj: [],
+    filteredObj: "",
   };
 
   componentDidMount() {
@@ -95,14 +62,13 @@ class App extends Component {
   //function that filters the locations based on the dropdown menu selection
   handleChange = e => {
     const value = e.target.value;
-    const filteredObj = this.state.locations[value];
     this.setState({ activeObj: value });
-    this.setState({ filteredObj: [filteredObj] });
+    this.setState({ filteredObj: value });
   };
 
   //function that resets filtering, when the button is clicked
   resetFilter = e => {
-    this.setState({ filteredObj: [] });
+    this.setState({ filteredObj: "" });
   };
 
   //function that removes the active popup, when it is clicked
@@ -129,7 +95,7 @@ class App extends Component {
         <main className="main">
           <Sidebar
             key="sidebar"
-            locations={this.state.locations}
+            venues={this.state.venues}
             activeObj={this.state.activeObj}
             filteredObj={this.state.filteredObj}
             handleChange={this.handleChange}
@@ -140,8 +106,7 @@ class App extends Component {
           <section className="map-container" aria-role="application">
            <MapBox
              key="mapbox"
-             locations={this.state.locations}
-             venuess={this.state.venues}
+             venues={this.state.venues}
              activeObj={this.state.activeObj}
              filteredObj={this.state.filteredObj}
              handleMarker={this.handleMarker}
