@@ -11,20 +11,20 @@ class MBMarker extends Component {
     //conditional rendering of the markers
     //the condition matches the rendered location object's id with the currently active object in the state of App.js
 
-    let isActive = this.props.location.id === this.props.activeObj;
+    let isActive = this.props.venue.id === this.props.activeObj;
 
     return (
       <Marker
-        key={this.props.location.id}
+        key={this.props.venue.id}
         onClick={this.props.handleMarker}
-        value={this.props.location.id}
+        value={this.props.venue.id}
         className="marker"
-        coordinates={this.props.location.lngLat}
+        coordinates={[this.props.venue.location.lng, this.props.venue.location.lat]}
         anchor="bottom"
       >
           <img
-            alt={this.props.location.place}
-            id={this.props.location.id}
+            alt={this.props.venue.name}
+            id={this.props.venue.id}
             src={isActive ? MarkerImgActive : MarkerImg}
           />
       </Marker>

@@ -7,7 +7,7 @@ class ListElem extends Component {
 
     //conditional rendering of the sidebar list items
     //the condition matches the rendered location object's id with the currently active object in the state of App.js
-    let isActive = this.props.locations.id === this.props.activeObj;
+    let isActive = this.props.venue.id === this.props.activeObj;
 
     return (
 
@@ -15,12 +15,12 @@ class ListElem extends Component {
           <li
             className={isActive ? 'active-li' : 'inactive-li'}
             tabIndex="0"
-            key={this.props.locations.id}
+            key={this.props.venue.id}
             onClick={e => {
-              this.props.handleSidebar(e, this.props.id);
+              this.props.handleSidebar(e, this.props.venue.id);
             }}
           >
-            {this.props.locations.place}
+            {this.props.venue.name}
           </li>
 
     );

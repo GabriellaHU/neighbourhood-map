@@ -19,20 +19,21 @@ class MapBox extends Component {
 
   render() {
 
-    const { locations } = this.props;
     const { venues } = this.props;
     const { activeObj } = this.props;
     const { filteredObj } = this.props;
+    const { handleMarker } = this.props;
+    const { removePopup } = this.props;
 
     // conditional rendering of the markers
     // more than one marker gets only rendered when no filtering is applied
 
-    let isFiltered = false;
-    if (filteredObj.length > 0) {
-      isFiltered = true;
+    let isActivated = false;
+    if (activeObj.length > 0) {
+      isActivated = true;
     }
 
-    const active = locations.filter(obj => obj.id === activeObj);
+    let activeVenue = isActivated ? venues.filter(venue => venue.venue.id === activeObj) : false
 
     return (
         <Map
@@ -43,7 +44,8 @@ class MapBox extends Component {
             height: "100%",
             width: "100%"
           }}
-          center={[19.042, 47.496]} /*starting position of the map*/
+          center={[19.029968, 47.511981]} /*starting position of the map*/
+          zoom={[14]}
           fitBounds={
             [18.934, 47.513][(19.102, 47.469)]
           } /*the map will center on the given coordinates*/
@@ -52,30 +54,35 @@ class MapBox extends Component {
         >
         // conditional rendering of the markers
         // more than one marker gets only rendered when no filtering is applied
-          {isFiltered
-            ? filteredObj.map(location => (
-                <MBMarker
-                  key={location.id}
-                  handleMarker={this.props.handleMarker}
-                  location={location}
-                  activeObj={this.props.activeObj}
-                />
-              ))
-            : locations.map(location => (
-                <MBMarker
-                  key={location.id}
-                  handleMarker={this.props.handleMarker}
-                  location={location}
-                  activeObj={this.props.activeObj}
-                />
-              ))}
-          {active.map(location => (
-            <MBPopup
-              key={location.id}
-              removePopup={this.props.removePopup}
-              locations={location}
-            />
-          ))}
+            {filteredObj
+                ? activeVenue.map(venue => {
+                  return (
+                    <MBMarker
+                      key={venue.venue.id}
+                      venue={venue.venue}
+                      handleMarker={handleMarker}
+                      activeObj={activeObj}
+                    />
+                  )})  :
+                    venues.map(venue => {
+                        return (
+                         <MBMarker
+                           key={venue.venue.id}
+                           venue={venue.venue}
+                           handleMarker={handleMarker}
+                           activeObj={activeObj}
+                         />
+                  )})
+             }
+            {activeVenue ?
+              <MBPopup
+                key={activeVenue[0].venue.id}
+                venue={activeVenue[0].venue}
+                removePopup={removePopup}
+              />
+             : ''
+            }
+
         </Map>
     );
   }

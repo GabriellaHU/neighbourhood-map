@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Filter extends Component {
 
   render() {
-    const { locations } = this.props;
+    const { venues } = this.props;
 
     return (
       <section id="location-filter">
@@ -17,13 +17,15 @@ class Filter extends Component {
           <option value="" defaultValue>
             Select an option
           </option>
-          {this.props.locations.map(location => (
-            <option
-              value={location.id}
-              key={location.id}>
-                {location.place}
-            </option>
-          ))}
+          {venues.map(venue => {
+            return (
+              <option
+                value={venue.venue.id}
+                key={venue.venue.id}>
+                  {venue.venue.name}
+              </option>
+            )
+          })}
         </select>
         <button
           className="reset"

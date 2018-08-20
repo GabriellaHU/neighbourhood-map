@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 
 import ListElem from "./ListElem";
@@ -10,13 +11,17 @@ import "./App.css";
 class Sidebar extends Component {
   render() {
     const { locations } = this.props;
+    const { venues } = this.props;
     const { activeObj } = this.props;
     const { filteredObj } = this.props;
+    const { handleSidebar } = this.props;
 
-    let isFiltered = false;
-    if (filteredObj.length > 0) {
-      isFiltered = true;
+    let isActivated = false;
+    if (activeObj.length > 0) {
+      isActivated = true;
     }
+
+    let activeVenue = isActivated ? venues.filter(venue => venue.venue.id === activeObj) : false
 
     return (
       <aside className="sidebar">
@@ -24,7 +29,7 @@ class Sidebar extends Component {
         <Image pictures = {this.props.pictures} />
 
         <Filter
-          locations={this.props.locations}
+          venues={venues}
           handleChange={this.props.handleChange}
           handleSidebar={this.props.handleSidebar}
           resetFilter={this.props.resetFilter}
@@ -35,28 +40,30 @@ class Sidebar extends Component {
           <ul
             className="menu">
 
-              {isFiltered
-                ? filteredObj.map(location => (
-                    <ListElem
-                      key={location.id}
-                      id={location.id}
-                      handleSidebar={this.props.handleSidebar}
-                      activeObj={this.props.activeObj}
-                      locations={location}
-                    />
-                  ))
-                : locations.map(location => (
-                    <ListElem
-                      key={location.id}
-                      id={location.id}
-                      handleSidebar={this.props.handleSidebar}
-                      activeObj={this.props.activeObj}
-                      locations={location}
-                    />
-                  ))
-                }
-            </ul>
+              {filteredObj
+                ? activeVenue.map(venue => {
+                return(
+                  <ListElem
+                    key={venue.venue.id}
+                    id={venue.venue.id}
+                    handleSidebar={handleSidebar}
+                    activeObj={activeObj}
+                    venue={venue.venue}
+                  />
+                )}) :
+                venues.map(venue => {
+                return(
+                  <ListElem
+                    key={venue.venue.id}
+                    id={venue.venue.id}
+                    handleSidebar={handleSidebar}
+                    activeObj={activeObj}
+                    venue={venue.venue}
+                  />
+                )})
+              }
 
+          </ul>
         </section>
       </aside>
     );

@@ -14,9 +14,10 @@ class MBPopup extends Component{
 
   return (
     <Popup
+      tabIndex="0"
       className="popup"
       onClick={this.props.removePopup}
-      coordinates={this.props.locations.lngLat}
+      coordinates={[this.props.venue.location.lng, this.props.venue.location.lat]}
       offset={{
         "bottom-left": [12, -38],
         "bottom": [0, -58],
@@ -26,8 +27,8 @@ class MBPopup extends Component{
       <h1
         tabIndex="-1"
         ref={this.popupRef = React.createRef()}
-      >{this.props.locations.place}</h1>
-      <p>{this.props.locations.address}</p>
+      >{this.props.venue.name}</h1>
+      <p>{this.props.venue.location.address}</p>
     </Popup>
   );
 }
