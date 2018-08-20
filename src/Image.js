@@ -17,7 +17,7 @@ class Image extends Component {
     fetch(API)
       .then(response => response.json())
       .then(data => this.setState({ images: data }))
-      .catch(error => console.log(error));
+      .catch(error => alert(`Sorry, we couldn't load the Unsplash image. Error: ${error}`));
 
     const randomIndex = this.getRandomIntInclusive(1, 9)
     this.setState({randomIndex})

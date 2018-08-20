@@ -15,6 +15,7 @@ class Sidebar extends Component {
     const { activeObj } = this.props;
     const { filteredObj } = this.props;
     const { handleSidebar } = this.props;
+    const { handleKeyPress } = this.props;
 
     let isActivated = false;
     if (activeObj.length > 0) {
@@ -38,7 +39,10 @@ class Sidebar extends Component {
         <section
           id="menu">
           <ul
-            className="menu">
+            className="menu"
+            tabIndex="0"
+            aria-label="location-menu"
+            role="menu">
 
               {filteredObj
                 ? activeVenue.map(venue => {

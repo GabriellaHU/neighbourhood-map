@@ -14,15 +14,18 @@ class ListElem extends Component {
     return (
 
 
-          <li
-            className={isActive ? 'active-li' : 'inactive-li'}
-            tabIndex="0"
-            key={this.props.venue.id}
-            onClick={e => {
+          <li>
+            <button
+              className={isActive ? 'active-li' : 'inactive-li'}
+              name="venue"
+              role="menuitem"
+              key={this.props.venue.id}
+              onClick={e => {
               this.props.handleSidebar(e, this.props.venue.id);
             }}
-          >
+           >
             {name}
+           </button>
           </li>
 
     );

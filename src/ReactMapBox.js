@@ -17,6 +17,11 @@ const Map = ReactMapboxGl({
 class MapBox extends Component {
 
 
+  errorFunction() {
+    alert(`Sorry, we couldn't load the map.`)
+  }
+
+
   render() {
 
     const { venues } = this.props;
@@ -51,6 +56,8 @@ class MapBox extends Component {
           } /*the map will center on the given coordinates*/
           // onStyleLoad={map => {
           // }}
+          onError={this.errorFunction}
+
         >
         // conditional rendering of the markers
         // more than one marker gets only rendered when no filtering is applied

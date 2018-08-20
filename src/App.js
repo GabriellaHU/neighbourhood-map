@@ -30,32 +30,33 @@ class App extends Component {
       client_id: "DP4U0LSQBGXTHOHAG2MNOSUHBKT41THUL30Y5Q2HJLZ3ZUZA",
       client_secret: "EC1CO5SHA1XNKFMIUF5BQVB3L3RLDL3QHLBFI5IJ42B25E5P",
       ll: "47.511981, 19.029968",
-      radius: "250",
+      radius: "1000",
       limit: '5',
       query: "food",
       v: "20182008"
     }
 
-
    fetch(endPoint + new URLSearchParams(parameters))
       .then(response => response.json())
       .then(data => this.setState({venues: data.response.groups[0].items}))
-      .catch(error => console.log(`Error: ${error}`));
+      .catch(error => alert(`Sorry, we couldn't load the venues. Error: ${error}`));
   }
 
 
   //function applied to markers that sets the id for the active location object
   //the markers can only be activated, when no filtering is applied
-  handleSidebar= (e, id) => {
+  handleSidebar = (e, id) => {
+    e.preventDefault();
     const value = id;
     if (this.state.filteredObj === false) {
       this.setState({ activeObj: value });
     }
   };
 
+
   //function applied to list items that sets the id for the active location object
   //the list items can only be activated, when no filtering is applied
-  handleMarker= e => {
+  handleMarker = e => {
     const value = e.target.id;
     if (this.state.filteredObj === false) {
       this.setState({ activeObj: value });

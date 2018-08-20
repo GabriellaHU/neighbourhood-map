@@ -7,7 +7,8 @@ class MBPopup extends Component{
 
 
   componentDidMount(){
-   this.popupRef.current.focus()
+    this.popupRef.current.focus()
+
   }
 
   render() {
@@ -17,7 +18,6 @@ class MBPopup extends Component{
 
   return (
     <Popup
-      tabIndex="0"
       className="popup"
       onClick={this.props.removePopup}
       coordinates={[this.props.venue.location.lng, this.props.venue.location.lat]}
@@ -27,16 +27,19 @@ class MBPopup extends Component{
         "bottom-right": [-12, -38]
       }}
     >
-      <h1
-        tabIndex="-1"
-        ref={this.popupRef = React.createRef()}
-      >
+    <article
+      tabIndex="-1"
+      ref={this.popupRef = React.createRef()}
+      aria-label="venue-info"
+      role="dialog"
+    >
+      <h1>
         {name}
       </h1>
       <p>
         <span>{address}</span>
       </p>
-
+    </article>
     </Popup>
   );
 }

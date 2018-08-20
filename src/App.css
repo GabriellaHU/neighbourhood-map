@@ -207,7 +207,7 @@ body {
   border: none;
 }
 
-/* hamburger-menu */
+
 #menu {
   display: flex;
   flex-basis: 100%;
@@ -222,9 +222,16 @@ body {
 }
 
 .menu li {
-  padding: 20px;
-  cursor: pointer;
   flex-basis: 100%;
+  display: flex;
+}
+
+.menu li button {
+  padding: 20px;
+  flex-basis: 100%;
+  color: #fff;
+  border: none;
+  font-size: 1em;
 }
 
 
@@ -243,7 +250,7 @@ body {
 
 /* ----------------- MEDIA QUERIES -------------------------------- */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 599px) {
 
   .map-container {
     order: 1;
