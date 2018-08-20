@@ -11,6 +11,7 @@ class App extends Component {
   // activeObj: the currently active location object
   // filteredObj: the object defined by the dropdown menu filter
   state = {
+    venues: [],
     locations: [
       {
         id: "0",
@@ -47,6 +48,30 @@ class App extends Component {
     activeObj: "",
     filteredObj: [],
   };
+
+  componentDidMount() {
+     this.getVenues()
+  }
+
+  //fetch locations
+  getVenues = () => {
+    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
+    const parameters = {
+      client_id: "DP4U0LSQBGXTHOHAG2MNOSUHBKT41THUL30Y5Q2HJLZ3ZUZA",
+      client_secret: "EC1CO5SHA1XNKFMIUF5BQVB3L3RLDL3QHLBFI5IJ42B25E5P",
+      ll: "47.511981, 19.029968",
+      radius: "250",
+      limit: '5',
+      query: "food",
+      v: "20182008"
+    }
+
+
+   fetch(endPoint + new URLSearchParams(parameters))
+      .then(response => response.json())
+      .then(data => this.setState({venues: data.response.groups[0].items}))
+      .catch(error => console.log(`Error: ${error}`));
+  }
 
 
   //function applied to markers that sets the id for the active location object
@@ -116,6 +141,7 @@ class App extends Component {
            <MapBox
              key="mapbox"
              locations={this.state.locations}
+             venuess={this.state.venues}
              activeObj={this.state.activeObj}
              filteredObj={this.state.filteredObj}
              handleMarker={this.handleMarker}

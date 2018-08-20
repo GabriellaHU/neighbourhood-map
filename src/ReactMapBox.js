@@ -46,6 +46,8 @@ class MapBox extends Component {
           fitBounds={
             [18.934, 47.513][(19.102, 47.469)]
           } /*the map will center on the given coordinates*/
+          // onStyleLoad={map => {
+          // }}
         >
         // conditional rendering of the markers
         // more than one marker gets only rendered when no filtering is applied
