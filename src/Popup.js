@@ -12,6 +12,9 @@ class MBPopup extends Component{
 
   render() {
 
+  const name = this.props.venue.name ? this.props.venue.name : 'Venue - no name available'
+  const address = this.props.venue.location.address ? this.props.venue.location.address : 'Budapest'
+
   return (
     <Popup
       tabIndex="0"
@@ -27,8 +30,13 @@ class MBPopup extends Component{
       <h1
         tabIndex="-1"
         ref={this.popupRef = React.createRef()}
-      >{this.props.venue.name}</h1>
-      <p>{this.props.venue.location.address}</p>
+      >
+        {name}
+      </h1>
+      <p>
+        <span>{address}</span>
+      </p>
+
     </Popup>
   );
 }

@@ -9,6 +9,8 @@ class ListElem extends Component {
     //the condition matches the rendered location object's id with the currently active object in the state of App.js
     let isActive = this.props.venue.id === this.props.activeObj;
 
+    const name = this.props.venue.name ? this.props.venue.name : 'Venue - no name available'
+
     return (
 
 
@@ -20,7 +22,7 @@ class ListElem extends Component {
               this.props.handleSidebar(e, this.props.venue.id);
             }}
           >
-            {this.props.venue.name}
+            {name}
           </li>
 
     );

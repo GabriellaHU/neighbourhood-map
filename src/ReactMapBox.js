@@ -80,7 +80,7 @@ class MapBox extends Component {
                 venue={activeVenue[0].venue}
                 removePopup={removePopup}
               />
-             : ''
+             : null
             }
 
         </Map>

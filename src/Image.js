@@ -58,11 +58,11 @@ class Image extends Component {
 
                 <a
                   className="unsplash-url"
-                  href={image.urls.regular}>
+                  href={image.urls.regular ? image.urls.regular : ''}>
                   <img
                     key={image.id}
                     className="unpsplash-img"
-                    src={image.urls.small}
+                    src={image.urls.small ? image.urls.small : ''}
                     alt="food image from Unsplash"
                   />
                 </a>
@@ -70,7 +70,7 @@ class Image extends Component {
                 <figcaption
                   className="appetizer-text">
                   <span>
-                    Photo by {image.user.name}
+                    Photo by {image.user.name ? image.user.name : 'anonim photographer'}
                   </span>
                   <span
                     className= "credentials">

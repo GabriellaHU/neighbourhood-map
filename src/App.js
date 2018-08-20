@@ -31,7 +31,7 @@ class App extends Component {
       client_secret: "EC1CO5SHA1XNKFMIUF5BQVB3L3RLDL3QHLBFI5IJ42B25E5P",
       ll: "47.511981, 19.029968",
       radius: "250",
-      limit: '7',
+      limit: '5',
       query: "food",
       v: "20182008"
     }

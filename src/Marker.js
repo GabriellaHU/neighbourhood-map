@@ -13,6 +13,8 @@ class MBMarker extends Component {
 
     let isActive = this.props.venue.id === this.props.activeObj;
 
+    const name = this.props.venue.name ? this.props.venue.name : 'Venue - no name available'
+
     return (
       <Marker
         key={this.props.venue.id}
@@ -23,7 +25,7 @@ class MBMarker extends Component {
         anchor="bottom"
       >
           <img
-            alt={this.props.venue.name}
+            alt={name}
             id={this.props.venue.id}
             src={isActive ? MarkerImgActive : MarkerImg}
           />
