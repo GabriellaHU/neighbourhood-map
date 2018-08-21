@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 
 // React wrapper for mapbox-gl-js
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl from "react-mapbox-gl";
 
 import MBPopup from "./Popup";
 import MBMarker from "./Marker";
+
+// the map style has to be imported as a json, otherwise it produces a warning in the console
+// import mapboxStyle from './style.json'
 
 import "./App.css";
 
@@ -44,23 +47,21 @@ class MapBox extends Component {
         <Map
           key="map"
           id="map"
+          // style={mapboxStyle}
           style="mapbox://styles/mapbox/streets-v10"
           containerStyle={{
             height: "100%",
             width: "100%"
           }}
-          center={[19.029968, 47.511981]} /*starting position of the map*/
+          center={[19.029968, 47.511981]}
           zoom={[14]}
           fitBounds={
             [18.934, 47.513][(19.102, 47.469)]
-          } /*the map will center on the given coordinates*/
-          // onStyleLoad={map => {
-          // }}
+          }
           onError={this.errorFunction}
-
         >
-        // conditional rendering of the markers
-        // more than one marker gets only rendered when no filtering is applied
+        {/* conditional rendering of the markers
+        more than one marker gets only rendered when no filtering is applied*/}
             {filteredObj
                 ? activeVenue.map(venue => {
                   return (

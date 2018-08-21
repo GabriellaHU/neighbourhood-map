@@ -40,9 +40,9 @@ class Image extends Component {
     const randomImg = images.slice(randomIndex - 1, randomIndex)
 
     //error handling, in case there are no images to render
-    let isErrorFree = images.length != 0;
+    let isErrorFree = images.length !== 0;
 
-    const image = isErrorFree ? images[randomIndex] : null;
+    // const image = isErrorFree ? images[randomIndex] : null;
 
     return (
       <section className="appetizer">
@@ -54,16 +54,16 @@ class Image extends Component {
           {isErrorFree ? (
             randomImg.map(image => (
               <figure
+                key={image.id}
                 className="appetizer-wrapper">
 
                 <a
                   className="unsplash-url"
                   href={image.urls.regular ? image.urls.regular : ''}>
                   <img
-                    key={image.id}
-                    className="unpsplash-img"
+                    className="unsplash"
                     src={image.urls.small ? image.urls.small : ''}
-                    alt="food image from Unsplash"
+                    alt="daily appetizer"
                   />
                 </a>
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ReactMapboxGl, { Marker } from "react-mapbox-gl";
+import { Marker } from "react-mapbox-gl";
 import MarkerImg from "./images/map-marker-alt-solid.svg";
 import MarkerImgActive from "./images/map-marker-alt-solid-active.svg";
 

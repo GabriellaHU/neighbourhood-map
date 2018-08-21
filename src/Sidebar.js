@@ -9,12 +9,10 @@ import "./App.css";
 
 class Sidebar extends Component {
   render() {
-    const { locations } = this.props;
     const { venues } = this.props;
     const { activeObj } = this.props;
     const { filteredObj } = this.props;
     const { handleSidebar } = this.props;
-    const { handleKeyPress } = this.props;
 
     let isActivated = false;
     if (activeObj.length > 0) {
@@ -68,7 +66,7 @@ class Sidebar extends Component {
                 })}
           </ul>
         </section>
-        
+
         <section className="credential">
           <span>venue data</span>
           <a href="https://developer.foursquare.com/places-api">

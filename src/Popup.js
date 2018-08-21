@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ReactMapboxGl, { Popup } from "react-mapbox-gl";
+import { Popup } from "react-mapbox-gl";
 
 
 class MBPopup extends Component{
