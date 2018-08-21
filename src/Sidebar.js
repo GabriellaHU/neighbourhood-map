@@ -37,8 +37,7 @@ class Sidebar extends Component {
         <section id="menu">
           <ul
             className="menu"
-            tabIndex="0"
-            aria-label="location-menu"
+            aria-label="venue list"
             role="menu"
           >
             {filteredObj

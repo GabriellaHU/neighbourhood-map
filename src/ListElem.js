@@ -13,20 +13,22 @@ class ListElem extends Component {
 
     return (
 
-
-          <li>
+        //a button is wrapped in the list element, because it handles focus and the enter keypress by default
+        <li
+            aria-label="venue"
+            role="menuitem"
+        >
             <button
               className={isActive ? 'active-li' : 'inactive-li'}
               name="venue"
-              role="menuitem"
               key={this.props.venue.id}
               onClick={e => {
-              this.props.handleSidebar(e, this.props.venue.id);
-            }}
-           >
-            {name}
+                this.props.handleSidebar(e, this.props.venue.id);
+                }}
+        >
+             {name}
            </button>
-          </li>
+        </li>
 
     );
   }
